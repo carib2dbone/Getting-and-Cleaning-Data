@@ -93,7 +93,7 @@ dtFeaturesV$FeatureCode <- sub("^","V",dtFeaturesV$FeatureCode)
 dtSubDataset <- data.table(melt(dtSubDataset, key(dtSubDataset), variable.name = "FeatureCode"))
 ## Now add the FeatureNames to the dataset (by merging the features list)
 dtSubDataset <- merge(dtSubDataset, dtFeaturesV, by = "FeatureCode", all.x = TRUE)
-dtSubdataset
+dtSubDataset
 ## Reorder the columns (in order of key)
 dtSubDataset <- dtSubDataset[, c(2:4, 1, 6, 5), with=FALSE]
 ## set the key
