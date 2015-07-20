@@ -5,6 +5,8 @@ setInternet2(TRUE)
 library(downloader)
 library( reshape2)
 library(data.table)
+
+# Set the working directory
 # setwd("C:/Ras/Coursera/Getting and Cleaning Data/data")
 
 # get the data
