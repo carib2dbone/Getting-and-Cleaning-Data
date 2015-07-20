@@ -94,6 +94,23 @@ dtSubDataset <- data.table(melt(dtSubDataset, key(dtSubDataset), variable.name =
 ## Now add the FeatureNames to the dataset (by merging the features list)
 dtSubDataset <- merge(dtSubDataset, dtFeaturesV, by = "FeatureCode", all.x = TRUE)
 dtSubDataset
+## Replace FeatureCode with FeatureName - 
+## the current values of FeatureCode ("V1","V2", etc) are meaningless
+## FeatureName will be modified afterwards to be more meaningful
+dtSubDataset$FeatureCode <- dtSubDataset$FeatureName
+## Now modify FeatureName to something more meaningful
+dtSubDataset$FeatureName <- gsub("^t", "Time: ", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("^f", "Frequency: ", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("Acc", "-Acceleration", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("Jerk", "-Jerk", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("Gyro", "-Gyroscope", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("Gravity", "-Gravity", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("Mag", "-Magnitude", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("-X", ": X-axis", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("-Y", ": Y-axis", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("-Z", ": Z-axis", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("-mean\\(\\)", "-Mean", dtSubDataset$FeatureName)
+dtSubDataset$FeatureName <- gsub("-std\\(\\)", "-SD", dtSubDataset$FeatureName)
 ## Reorder the columns (in order of key)
 dtSubDataset <- dtSubDataset[, c(2:4, 1, 6, 5), with=FALSE]
 ## set the key
