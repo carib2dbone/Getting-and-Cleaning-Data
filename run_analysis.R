@@ -115,6 +115,8 @@ dtSubDataset$FeatureName <- gsub("-std\\(\\)", "-SD", dtSubDataset$FeatureName)
 dtSubDataset <- dtSubDataset[, c(2:4, 1, 6, 5), with=FALSE]
 ## set the key
 setkey(dtSubDataset, Subject, ActivityNum, ActivityName, FeatureCode, FeatureName)
+dtSubDataset
 
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 dtTidyDataset <- dtSubDataset[, list(Average = mean(value)), by = key(dtSubDataset)]
+dtTinyDataset
