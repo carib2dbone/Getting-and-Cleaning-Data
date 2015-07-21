@@ -17,12 +17,6 @@ Average             | The average measurement for the particular feature, activi
 
 Dataset structure
 -----------------
-
-
-```r
-str(dtTidyDataset)
-```
-
 ```
 ## Classes 'data.table' and 'data.frame':	11880 obs. of  6 variables:
 ##  $ Subject     : int  1 1 1 1 1 1 1 1 1 1 ...
@@ -37,12 +31,6 @@ str(dtTidyDataset)
 
 Data table key
 --------------
-
-
-```r
-key(dtTidyDataset)
-```
-
 ```
 ## [1] "Subject"      "ActivityNum"  "ActivityName" "FeatureCode" 
 ## [5] "FeatureName"
@@ -50,12 +38,6 @@ key(dtTidyDataset)
 
 Sample data
 -----------
-
-
-```r
-dtTidyDataset
-```
-
 ```
 ##        Subject ActivityNum ActivityName           FeatureCode
 ##     1:       1           1      WALKING     fBodyAcc-mean()-X
@@ -85,12 +67,6 @@ dtTidyDataset
 
 Summary of variables
 --------------------
-
-
-```r
-summary(dtTidyDataset)
-```
-
 ```
 ##     Subject      ActivityNum  ActivityName       FeatureCode       
 ##  Min.   : 1.0   Min.   :1.0   Length:11880       Length:11880      
